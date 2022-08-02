@@ -9,10 +9,9 @@
 int main()
 {
     int s,r,recb,sntb,x;
-    int ca;
     std::cout << "INPUT port number :";
     std::cin>>x;
-    socklen_t len;
+    socklen_t len,ca;
     struct sockaddr_in server,client;
     char buff[50];
     s = socket(AF_INET,SOCK_DGRAM,0);
