@@ -1,0 +1,34 @@
+	AREA RESET,DATA,READONLY
+	EXPORT __Vectors
+__Vectors
+	DCD 0x10001000
+	DCD Reset_Handler
+	ALIGN
+	AREA mycode, CODE, READONLY
+	ENTRY
+	EXPORT Reset_Handler
+Reset_Handler
+; code here 
+	LDR R0,=NUM1 + 4*(N-1)
+	LDR R1,=NUM2 + 4*(N-1)
+	LDR R5,=RES + 4*N
+	LDR R10,=0X4
+BACK
+	LDR R2,[R0],#-4
+	LDR R3,[R1],#-4
+	ADCS R4,R2,R3
+	STR R4,[R5],#-4
+	SUB R10,#1
+	TEQ R10,#0
+	BNE BACK
+	ADC R8,#0
+	STR R8,[R5]
+STOP B STOP
+N EQU 4
+NUM1 DCD 0XffffFFFF,0X2,0X3,0X4
+NUM2 DCD 0X10,0X11,0X12,0X13
+	AREA mydata, DATA, READWRITE
+RES DCD 0,0,0,0,0
+; reserve memory in RAM here
+
+	END
