@@ -1,0 +1,26 @@
+	AREA RESET,DATA,READONLY
+	EXPORT __Vectors
+__Vectors
+	DCD 0x10001000
+	DCD Reset_Handler
+	ALIGN
+	AREA mycode, CODE, READONLY
+	ENTRY
+	EXPORT Reset_Handler
+Reset_Handler
+    LDR R0,=ARR
+    LDR R1,[R0] ; smallest
+    LDR R2,0 ; OUTER LOOP COUNTER 
+OUTER
+
+    LDR R4,[R0]
+    LDR R5,[R0]
+    CMP R4,R5
+    BLO
+
+    LDR R
+STOP B STOP
+ARR DCD 0x12,0x2,0x45,0x8,0x0,0x32,0x42,0x2,0x66,0x7
+	AREA MYDATA,DATA, READWRITE
+RES DCD 0,0,0,0,0,0,0,0,0,0
+	END
