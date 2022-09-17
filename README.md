@@ -1,6 +1,5 @@
 # VSEM
 ## dbms : / DATA BASE MANAGEMENT LAB
-Some beggining lab is about making c# winforms apllication as a frontend.
-Later oracle sql is the primary focus
+Oracle SQL and Visual C# Winform Applications
 ## es : / EMBEDDED SYSTEMS
-LPC 1768 ARM assembly programming. 
+LPC 1768 ARM assembly programming and Embedded C programming on Keil Uvision.
